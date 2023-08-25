@@ -1,3 +1,4 @@
+import { Title, MantineProvider, Flex } from '@mantine/core'
 import { useState } from 'react'
 
 
@@ -5,11 +6,13 @@ function App() {
   const [location, setLocation] = useState("")
 
   return (
-    <>
-      <div>
-        <h1> LiteSkies </h1>
-      </div>
-    </>
+    <MantineProvider>
+      <Flex
+      justify={"center"}
+      >
+          <Title order={1} align='center'> LiteSkies </Title>
+      </Flex>
+    </ MantineProvider>
   )
 }
 
