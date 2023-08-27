@@ -1,19 +1,17 @@
-import { Title, MantineProvider, Center } from "@mantine/core";
+import { Title, MantineProvider, Stack } from "@mantine/core";
 import { useState, useEffect } from "react";
-import DisplayWeather from "./components/DisplayWeather";
+import FetchWeather from "./components/fetchWeather";
 
 function App() {
-
-
   return (
     <MantineProvider>
       <div>
-        <Center>
+        <Stack align="center">
           <Title order={1} align="center">
             LiteSkies
           </Title>
-          <DisplayWeather location={location} />
-        </Center>
+          <FetchWeather />
+        </Stack>
       </div>
     </MantineProvider>
   );
