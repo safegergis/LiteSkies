@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { Text } from "@mantine/core";
+import { Loader, Text } from "@mantine/core";
 import DisplayWeather from "./DisplayWeather";
 
 function isEmpty(str) {
   return !str || str.length === 0;
 }
 
-export default function FetchWeather() {
+export default function FetchWeather({}) {
   const [weatherData, setWeatherData] = useState(null);
   const [location, setLocation] = useState({
     lat: "",
@@ -52,7 +52,7 @@ export default function FetchWeather() {
   if (weatherData === null) {
     return (
       <div>
-        <Text order={2}> Still loading...</Text>
+        <Loader variant="bars" />
       </div>
     );
   } else {
