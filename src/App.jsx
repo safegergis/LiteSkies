@@ -1,8 +1,9 @@
-import { Title, MantineProvider, Stack } from "@mantine/core";
+import { Title, MantineProvider, Stack, Group } from "@mantine/core";
 import { useState, useEffect } from "react";
 import FetchWeather from "./components/fetchWeather";
 
 function App() {
+  const [locationList, setLocationList] = useState({});
   return (
     <MantineProvider>
       <div>
@@ -10,7 +11,9 @@ function App() {
           <Title order={1} align="center">
             LiteSkies
           </Title>
-          <FetchWeather />
+          <Group>
+            <FetchWeather first={true} />
+          </Group>
         </Stack>
       </div>
     </MantineProvider>
