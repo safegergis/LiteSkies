@@ -6,15 +6,15 @@ import {
   Stack,
   Text,
   Title,
+  useMantineTheme,
 } from "@mantine/core";
 import "../css/weather-icons.css";
 
 export default function DisplayWeather({ weather }) {
-  const iconurl =
-    "http://openweathermap.org/img/wn/" + `${weather.weather[0].icon}` + ".png";
+  const theme = useMantineTheme();
 
+  // Using weathericons by erikflowers. creating the icon directory
   var dorn = "";
-
   var prefix = "wi wi-";
 
   var today = new Date();
@@ -30,6 +30,8 @@ export default function DisplayWeather({ weather }) {
   var code = weather.weather[0].id;
   var iconD = prefix + "owm-" + dorn + code;
   console.log(iconD);
+
+  //round kelvin to farenheit
   const toFarenheit = (k) => {
     var f = 0;
     parseFloat(k);
@@ -37,7 +39,14 @@ export default function DisplayWeather({ weather }) {
     return f.toFixed(1);
   };
   return (
-    <Card shadow="sm" padding="lg" withBorder>
+    <Card
+      shadow="sm"
+      padding="lg"
+      withBorder
+      style={{
+        background: theme.fn.linearGradient(180, "white", "#D8F2FF"),
+      }}
+    >
       <Card.Section>
         <Stack p={"sm"}>
           <i className={iconD} style={{ fontSize: 64, textAlign: "center" }} />
