@@ -28,7 +28,7 @@ function App() {
   });
 
   return (
-    <MantineProvider>
+    <MantineProvider defaultColorScheme="dark">
       <div>
         <Modal
           opened={addModal}
